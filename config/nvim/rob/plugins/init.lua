@@ -1,3 +1,0 @@
-return {
-  require("lsp-config")
-}
