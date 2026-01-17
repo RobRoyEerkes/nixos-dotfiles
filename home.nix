@@ -19,8 +19,9 @@
 };
 };
   
-  home.file.".config/nvim".source = ./config/nvim;
-
+  programs.neovim = {
+	package = pkgs.callPackage ./config/nvim {};
+  };
   home.packages = with pkgs; [
     neovim
     ripgrep
