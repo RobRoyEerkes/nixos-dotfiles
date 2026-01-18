@@ -7,14 +7,14 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 
 		};
-		nvf.url = "github:notashelf/nvf";
+		nixvim.url = "github:RobRoyEerkes/nvim-config";
+
 
 	};
-	outputs = { self, nixpkgs, home-manager, nvf, ... }: {
+	outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-rob = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
-				nvf.nixosModules.default
 				./configuration.nix
 				home-manager.nixosModules.home-manager 
 				{
@@ -27,6 +27,7 @@
 				}
 				
 			];
+                        specialArgs = { inherit inputs; };
 		};
 	};
 }

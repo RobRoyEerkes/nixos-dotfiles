@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs,  ... }:
 
 {
   imports =
@@ -53,20 +53,11 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
 
-  programs.nvf = {
-    enable = true;
-    settings = {
-      imports = [
-        ./config/nvim/nvf-configuration.nix
-      ];
-    };
-
-  };
-
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     git
     alacritty
     fuzzel
