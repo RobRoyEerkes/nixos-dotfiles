@@ -17,7 +17,11 @@
       };
       init.defaultBranch = "master";
 };
+        extraConfig = {
+          github.user = "RobRoyEerkes";
+          gh.git_protocol = "https";
 
+};
 };
     programs.gh = {
     enable = true;

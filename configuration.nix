@@ -28,13 +28,12 @@
 
   services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
+  services.pulseaudio.enable = false;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -54,16 +53,32 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
 
+  programs.nvf = {
+    enable = true;
+    settings = {
+      imports = [
+        ./config/nvim/nvf-configuration.nix
+      ];
+    };
+
+  };
+
+
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    neovim
     git
     alacritty
     fuzzel
     swaylock
     swayidle
     mako
+    ripgrep
+    nil
+    nixpkgs-fmt
+    nodejs
+    gcc
+    pavucontrol
   ];
   
 
