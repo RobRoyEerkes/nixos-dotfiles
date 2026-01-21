@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
-
+  home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.rob.imports = [ ../modules/home.nix ];
   home-manager.backupFileExtension = "backup";
   boot.loader.systemd-boot.enable = true;

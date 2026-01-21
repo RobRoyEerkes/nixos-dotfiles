@@ -8,14 +8,17 @@
 
     };
     nixvim.url = "github:RobRoyEerkes/nvim-config";
-
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       self,
       nixpkgs,
       home-manager,
-			nixvim,
+      nixvim,
       ...
     }@inputs:
     {
