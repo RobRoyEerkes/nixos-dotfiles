@@ -51,7 +51,7 @@
       tree
     ];
   };
-
+  programs.niri.enable = true;
   programs.firefox.enable = true;
 
   security.polkit.enable = true;
@@ -60,6 +60,7 @@
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    bash
     wget
     git
     ripgrep

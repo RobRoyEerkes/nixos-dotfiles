@@ -6,9 +6,7 @@
 }:
 
 {
-
   home.packages = with pkgs; [
-    niri
     alacritty
     fuzzel
     swaylock
