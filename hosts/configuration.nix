@@ -1,11 +1,19 @@
-{ config, lib, pkgs, inputs,  ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-	./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
+  home-manager.users.rob.imports = [ ../modules/home.nix ];
+  home-manager.backupFileExtension = "backup";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -19,10 +27,7 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-  programs.niri.enable = true;
   services.displayManager.ly.enable = true;
-
-  
 
   services.xserver.xkb.options = "caps:escape";
 
@@ -51,33 +56,26 @@
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.swaylock = {};
-
+  security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     git
-    alacritty
-    fuzzel
-    swaylock
-    swayidle
-    mako
     ripgrep
     nil
     nixpkgs-fmt
     nodejs
     gcc
-    pavucontrol
   ];
-  
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   system.stateVersion = "25.11";
 }
-

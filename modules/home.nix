@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
-  imports = [
-	  ./modules/home.nix
-	];
-  home.username = "rob";
+imports = [
+./niri.nix
+./nvim.nix
+];
+home.username = "rob";
   home.homeDirectory = "/home/rob";
   programs.git.enable = true;
   home.stateVersion = "25.11";
@@ -29,6 +29,4 @@
 
   home.packages = with pkgs; [
     ];
-
-
 }

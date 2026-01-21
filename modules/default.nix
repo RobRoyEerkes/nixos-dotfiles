@@ -1,0 +1,6 @@
+{ inputs, ... }:
+{
+  imports = [
+    ./nvim.nix
+  ];
+}

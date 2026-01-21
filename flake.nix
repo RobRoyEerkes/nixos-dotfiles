@@ -15,23 +15,14 @@
       self,
       nixpkgs,
       home-manager,
+			nixvim,
       ...
     }@inputs:
     {
       nixosConfigurations.nixos-rob = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.rob = import ./home.nix;
-              backupFileExtension = "backup";
-            };
-          }
-
+          ./hosts/configuration.nix
         ];
         specialArgs = { inherit inputs; };
       };
