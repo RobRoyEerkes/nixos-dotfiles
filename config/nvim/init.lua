@@ -188,12 +188,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{
-		"RRethy/base16-nvim",
-		config = function()
-			require("matugen").setup()
-		end,
-	},
+
 	{
 		"folke/snacks.nvim",
 		---@type snacks.Config

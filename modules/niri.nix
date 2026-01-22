@@ -31,7 +31,9 @@
       "gtk-application-prefer-dark-theme" = 1;
     };
   };
+
   home.pointerCursor = {
+    enable = true;
     name = "BreezeX-RosePine-Linux";
     package = pkgs.rose-pine-cursor;
     size = 24;
