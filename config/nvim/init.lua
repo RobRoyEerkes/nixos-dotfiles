@@ -18,6 +18,8 @@ vim.g.have_nerd_font = true
 
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 vim.o.mouse = "a"
 
@@ -151,7 +153,6 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
 
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following

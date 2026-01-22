@@ -9,6 +9,7 @@
 {
   imports = [
     inputs.noctalia.homeModules.default
+    ./noctalia-shell.nix
   ];
   programs.noctalia-shell = {
     enable = true;
