@@ -8,7 +8,6 @@
 
 {
   imports = [
-    inputs.noctalia.homeModules.default
     ./noctalia-shell.nix
   ];
 

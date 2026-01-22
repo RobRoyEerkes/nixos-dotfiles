@@ -1,6 +1,10 @@
 { pkgs, inputs, ... }:
 {
   # ...
+  imports = [
+    inputs.noctalia.homeModules.default
+    inputs.matugen.nixosModules.default
+  ];
   programs.noctalia-shell = {
     enable = true;
     settings = {
@@ -13,7 +17,7 @@
         # General Matugen config settings
       };
       templates = {
-        neovim = {
+        nvim-base16 = {
           input_path = "~/.config/nvim/lua/matugen-template.lua";
           output_path = "~/.config/nvim/lua/matugen.lua";
           post_hook = "pkill -SIGUSR1 nvim";
