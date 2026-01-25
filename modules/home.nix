@@ -4,7 +4,6 @@
     ./niri.nix
     ./nvim.nix
     ./media.nix
-    ./games.nix
   ];
   home.username = "rob";
   home.homeDirectory = "/home/rob";

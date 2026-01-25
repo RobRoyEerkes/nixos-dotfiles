@@ -9,6 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../modules/default.nix
     inputs.home-manager.nixosModules.home-manager
   ];
   nixpkgs.config.allowUnfree = true;
