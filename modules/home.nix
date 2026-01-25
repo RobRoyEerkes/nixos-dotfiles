@@ -3,7 +3,7 @@
   imports = [
     ./niri.nix
     ./nvim.nix
-    ./music.nix
+    ./media.nix
   ];
   home.username = "rob";
   home.homeDirectory = "/home/rob";
