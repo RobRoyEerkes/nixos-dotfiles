@@ -4,5 +4,6 @@
     spotify # NOTE: I want to deprecate this.
     rmpc
     vlc
+    mpd
   ];
 }

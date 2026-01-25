@@ -15,6 +15,7 @@
   home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.rob.imports = [ ../modules/home.nix ];
   home-manager.backupFileExtension = "backup";
+  home-manager.useGlobalPkgs = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
