@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
+  nixpkgs.config.allowUnfree = true;
   home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.rob.imports = [ ../modules/home.nix ];
   home-manager.backupFileExtension = "backup";

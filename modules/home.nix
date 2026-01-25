@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
-imports = [
-./niri.nix
-./nvim.nix
-];
-home.username = "rob";
+  imports = [
+    ./niri.nix
+    ./nvim.nix
+    ./music.nix
+  ];
+  home.username = "rob";
   home.homeDirectory = "/home/rob";
   programs.git.enable = true;
   home.stateVersion = "25.11";
@@ -16,17 +17,17 @@ home.username = "rob";
     settings = {
       user = {
         name = "Rob Eerkes";
-	email = "rreerkes@hotmail.com";
+        email = "rreerkes@hotmail.com";
       };
       init.defaultBranch = "master";
-};
+    };
 
-};
-    programs.gh = {
+  };
+  programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
-};
+  };
 
   home.packages = with pkgs; [
-    ];
+  ];
 }
