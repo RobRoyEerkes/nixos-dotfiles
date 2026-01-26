@@ -59,10 +59,6 @@
     enable = true;
   };
   programs.firefox.enable = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-  };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
