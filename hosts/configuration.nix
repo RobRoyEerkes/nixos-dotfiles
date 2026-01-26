@@ -54,9 +54,15 @@
       tree
     ];
   };
-  programs.niri.enable = true;
+  programs.xwayland.enable = true;
+  programs.niri = {
+    enable = true;
+  };
   programs.firefox.enable = true;
-
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };

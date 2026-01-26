@@ -43,7 +43,7 @@
       ltex-ls-plus
       cmake
       cmake-language-server
-      perl540Packages.PerlTidy
+      perlPackages.PerlTidy
       html-tidy
       python3
       nixfmt-classic
