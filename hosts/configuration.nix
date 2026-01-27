@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
@@ -62,6 +60,7 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
+  programs.thunar.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -69,10 +68,13 @@
     wget
     git
     ripgrep
-    nil
-    nixpkgs-fmt
-    nodejs
-    gcc
+    zoxide
+    bat
+    fd
+    tldr
+    btop
+    eza
+    fastfetch
   ];
 
   fonts.packages = with pkgs; [
