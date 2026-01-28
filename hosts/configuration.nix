@@ -26,8 +26,6 @@
 
   time.timeZone = "Europe/Amsterdam";
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
   services.displayManager.ly.enable = true;
 
   services.xserver.xkb.options = "caps:escape";
@@ -60,9 +58,7 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
-  programs.thunar = {
-    enable = true;
-  };
+
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     bash
@@ -76,7 +72,6 @@
     btop
     eza
     fastfetch
-    xfce.ristretto
   ];
 
   fonts.packages = with pkgs; [
