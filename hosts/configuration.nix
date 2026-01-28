@@ -76,6 +76,7 @@
     btop
     eza
     fastfetch
+    xfce.ristretto
   ];
 
   fonts.packages = with pkgs; [
