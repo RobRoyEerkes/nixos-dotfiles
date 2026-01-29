@@ -271,8 +271,9 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-		Mod+B hotkey-overlay-title="Run Browser: Firefox" { spawn "firefox"; }
+		Mod+B hotkey-overlay-title="Run Browser: Brave" { spawn "brave"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+		Mod+E hotkey-overlay-title="Open File manager" {spawn "thunar";}
 
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

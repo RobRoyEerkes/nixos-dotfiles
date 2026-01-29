@@ -7,7 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
 
     };
-    nixvim.url = "github:RobRoyEerkes/nvim-config";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +17,6 @@
       self,
       nixpkgs,
       home-manager,
-      nixvim,
       ...
     }@inputs:
     {
@@ -33,7 +31,7 @@
         nixos-laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/configuration.nix
+            ./hosts/laptop/configuration.nix
           ];
           specialArgs = { inherit inputs; };
         };
