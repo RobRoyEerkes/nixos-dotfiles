@@ -22,12 +22,21 @@
       ...
     }@inputs:
     {
-      nixosConfigurations.nixos-rob = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/configuration.nix
-        ];
-        specialArgs = { inherit inputs; };
+      nixosConfigurations = {
+        nixos-rob = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/configuration.nix
+          ];
+          specialArgs = { inherit inputs; };
+        };
+        nixos-laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/configuration.nix
+          ];
+          specialArgs = { inherit inputs; };
+        };
       };
     };
 }
