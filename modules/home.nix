@@ -2,7 +2,6 @@
 {
   imports = [
     ./niri.nix
-    # ./nvim.nix
     ./media.nix
   ];
   home.username = "rob";
