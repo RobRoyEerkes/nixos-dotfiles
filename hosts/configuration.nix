@@ -72,6 +72,7 @@
     btop
     eza
     fastfetch
+    inputs.nixvim.packages.${system}.default
   ];
 
   fonts.packages = with pkgs; [
