@@ -7,6 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
 
     };
+    nixvim.url = "github:RobRoyEerkes/nixvim-config";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
       self,
       nixpkgs,
       home-manager,
+      nixvim,
       ...
     }@inputs:
     {

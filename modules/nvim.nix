@@ -1,6 +1,7 @@
 # vim: fixeol eol expandtab tabstop=2 shiftwidth=2
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -50,5 +51,6 @@
   home.sessionVariables = {
     MANPAGER = "nvim +Man!";
   };
-  xdg.configFile.nvim.source = ../config/nvim;
+  home.file."./.config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/nvim";
 }
