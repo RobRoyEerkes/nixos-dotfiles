@@ -98,7 +98,7 @@
     eza
     fastfetch
     brave
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
