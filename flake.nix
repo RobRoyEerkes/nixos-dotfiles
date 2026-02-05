@@ -1,7 +1,7 @@
 {
   description = "NixOS from scratch";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +12,7 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms.url = "github:AvengeMedia/DankMaterialShell";
   };
   outputs =
     {
@@ -19,6 +20,7 @@
       nixpkgs,
       home-manager,
       nixvim,
+      dms,
       ...
     }@inputs:
     {

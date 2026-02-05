@@ -8,7 +8,7 @@
 
 {
   imports = [
-    ./noctalia-shell.nix
+    ./dms.nix
   ];
   gtk = {
     enable = true;
