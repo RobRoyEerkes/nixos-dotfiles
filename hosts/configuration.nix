@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  hostname,
   ...
 }:
 
@@ -11,7 +12,10 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   nixpkgs.config.allowUnfree = true;
-  home-manager.extraSpecialArgs = { inherit inputs; };
+  home-manager.extraSpecialArgs = {
+    inherit inputs;
+    inherit hostname;
+  };
   home-manager.users.rob.imports = [ ../modules/home.nix ];
   home-manager.backupFileExtension = "backup";
   home-manager.useGlobalPkgs = true;
