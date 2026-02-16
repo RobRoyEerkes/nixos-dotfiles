@@ -8,10 +8,6 @@
   home.homeDirectory = "/home/rob";
   programs.git.enable = true;
   home.stateVersion = "25.11";
-  programs.bash = {
-    enable = true;
-  };
-
   programs.git = {
     settings = {
       user = {

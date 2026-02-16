@@ -98,6 +98,9 @@
     eza
     fastfetch
     brave
+    uv
+    networkmanagerapplet # NOTE: for configuring eduroam
+    # TODO: Add eduroam to the system automaticly
     inputs.nixvim.packages.${system}.default
   ];
 
