@@ -1,7 +1,7 @@
 {
   description = "NixOS from scratch";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +26,7 @@
         nixos-rob = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/configuration.nix
+            ./hosts/desktop/configuration.nix
           ];
           specialArgs = {
             inherit inputs;
