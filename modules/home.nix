@@ -3,6 +3,7 @@
   imports = [
     ./niri.nix
     ./media.nix
+    ./bash.nix
   ];
   home.username = "rob";
   home.homeDirectory = "/home/rob";
