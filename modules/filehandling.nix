@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    xfce.thunar
-    xfce.ristretto
-    xfce.tumbler
+    thunar
+    ristretto
+    tumbler
     gimp
   ];
   services.gvfs.enable = true;
