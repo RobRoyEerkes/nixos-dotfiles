@@ -92,7 +92,6 @@
     wget
     git
     ripgrep
-    zoxide
     bat
     fd
     tldr

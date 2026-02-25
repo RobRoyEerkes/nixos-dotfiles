@@ -11,11 +11,17 @@
 
       ls = "eza";
       cat = "bat";
-      cd = "z";
     };
     initExtra = "fastfetch";
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
   programs.starship = {
     enable = true;
     settings = {
