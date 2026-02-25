@@ -67,6 +67,7 @@
     };
   };
 
+  programs.nix-ld.enable = true;
   users.users.rob = {
     isNormalUser = true;
     extraGroups = [
@@ -104,6 +105,8 @@
     # TODO: Add eduroam to the system automaticly
     inputs.nixvim.packages.${system}.default
     wl-clipboard
+    pciutils
+    lshw
   ];
 
   fonts.packages = with pkgs; [

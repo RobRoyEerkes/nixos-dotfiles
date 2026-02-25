@@ -11,7 +11,7 @@
 
       ls = "eza";
       cat = "bat";
-      cd = "zoxide";
+      cd = "z";
     };
     initExtra = "fastfetch";
   };

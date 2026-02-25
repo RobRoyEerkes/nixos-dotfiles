@@ -18,7 +18,7 @@
         capsuleOpacity = 1;
         backgroundOpacity = 0.93;
         useSeparateOpacity = false;
-        floating = false;
+        floating = true;
         marginVertical = 4;
         marginHorizontal = 4;
         outerCorners = true;
@@ -59,9 +59,6 @@
             }
             {
               id = "Volume";
-            }
-            {
-              id = "Brightness";
             }
             {
               id = "ControlCenter";
@@ -234,7 +231,7 @@
             id = "audio-card";
           }
           {
-            enabled = false;
+            enabled = true;
             id = "brightness-card";
           }
           {
