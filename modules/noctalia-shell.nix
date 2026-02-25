@@ -107,7 +107,7 @@
         boxBorderEnabled = false;
       };
       location = {
-        name = "Tokyo";
+        name = "Delft";
         weatherEnabled = true;
         weatherShowEffects = true;
         useFahrenheit = false;
@@ -118,7 +118,7 @@
         analogClockInCalendar = false;
         firstDayOfWeek = -1;
         hideWeatherTimezone = false;
-        hideWeatherCityName = false;
+        hideWeatherCityName = true;
       };
       calendar = {
         cards = [
