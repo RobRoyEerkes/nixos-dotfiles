@@ -99,11 +99,12 @@
     btop
     eza
     fastfetch
-    brave
+    inputs.zen.packages."${stdenv.hostPlatform.system}".default
+    # brave
     uv
     networkmanagerapplet # NOTE: for configuring eduroam
     # TODO: Add eduroam to the system automaticly
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
     wl-clipboard
     pciutils
     lshw
