@@ -97,6 +97,7 @@
     fd
     tldr
     btop
+    unzip
     eza
     fastfetch
     inputs.zen.packages."${stdenv.hostPlatform.system}".default
@@ -108,6 +109,7 @@
     wl-clipboard
     pciutils
     lshw
+    discord
   ];
 
   fonts.packages = with pkgs; [
