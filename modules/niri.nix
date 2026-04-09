@@ -1,8 +1,5 @@
 {
   pkgs,
-  config,
-  lib,
-  inputs,
   ...
 }:
 
@@ -30,7 +27,7 @@
       "gtk-application-prefer-dark-theme" = 1;
     };
   };
-  dconf.enable = true;
+  dconf.enable = true; # TODO: Check if this is needed
 
   home.pointerCursor = {
     enable = true;
