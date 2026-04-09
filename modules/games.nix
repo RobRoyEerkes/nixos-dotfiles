@@ -23,6 +23,7 @@
     godot
     # krita
     kdePackages.kdenlive
+    kdePackages.qtimageformats
 
     blender
   ];

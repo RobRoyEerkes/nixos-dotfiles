@@ -28,7 +28,6 @@
     };
   };
   dconf.enable = true; # TODO: Check if this is needed
-
   home.pointerCursor = {
     enable = true;
     name = "BreezeX-RosePine-Linux";
