@@ -22,7 +22,6 @@
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
     };
-
     gtk3.extraConfig = {
       "gtk-application-prefer-dark-theme" = 1;
     };
@@ -31,6 +30,7 @@
       "gtk-application-prefer-dark-theme" = 1;
     };
   };
+  dconf.enable = true;
 
   home.pointerCursor = {
     enable = true;
@@ -44,7 +44,6 @@
   home.sessionVariables = {
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
-    QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
   home.packages = with pkgs; [
@@ -53,6 +52,7 @@
     swaylock
     swayidle
     mako
+    xdg-desktop-portal-gnome
 
   ];
   xdg.configFile = {

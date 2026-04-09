@@ -235,6 +235,7 @@ layout {
 
 
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "xdg-desktop-portal-gnome"
 
 
 hotkey-overlay {

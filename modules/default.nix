@@ -37,6 +37,8 @@
 
   services.printing.enable = true;
 
+  services.dbus.enable = true;
+
   services.pulseaudio.enable = false;
   # OR
   services.pipewire = {

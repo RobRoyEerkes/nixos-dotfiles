@@ -22,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     godot
     # krita
+    kdePackages.kdenlive
 
     blender
   ];
