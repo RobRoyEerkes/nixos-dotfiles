@@ -40,6 +40,66 @@
         };
       };
 
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+        settings.sources = [
+          { name = "nvim-lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          { name = "luasnip"; }
+        ];
+      };
+
+      dashboard = {
+        enable = true;
+        settings = {
+          change_to_vcs_root = true;
+          config = {
+            footer = [
+              "Made with ❤️"
+            ];
+            header = [
+              "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
+              "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
+              "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
+              "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
+              "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
+              "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+            ];
+            mru = {
+              limit = 20;
+            };
+            project = {
+              enable = false;
+            };
+            shortcut = [
+              {
+                action = {
+                  __raw = "function(path) vim.cmd('lua Snacks.picker.files({cwd = path})') end";
+                };
+                desc = "Files";
+                group = "Label";
+                icon = " ";
+                icon_hl = "@variable";
+                key = "f";
+              }
+
+              {
+                action = "lua Snacks.picker.files({cwd = vim.fn.expand('~/nixos-dotfiles')})";
+                desc = " dotfiles";
+                group = "Number";
+                key = "d";
+              }
+            ];
+            week_header = {
+              enable = true;
+            };
+          };
+          theme = "hyper";
+        };
+      };
+
       oil = {
         enable = true;
         settings = {
