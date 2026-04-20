@@ -2,18 +2,21 @@
   description = "NixOS from scratch";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-
     };
-    nixvim.url = "github:RobRoyEerkes/nixvim-config";
+
+    nixvim.url = "github:nix-community/nixvim";
+
     zen = {
       url = "github:youwen5/zen-browser-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";

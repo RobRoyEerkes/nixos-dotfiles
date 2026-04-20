@@ -8,6 +8,7 @@
   imports = [
     ./games.nix
     ./filehandling.nix
+    ./nvim.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -107,7 +108,6 @@
     uv
     networkmanagerapplet # NOTE: for configuring eduroam
     # TODO: Add eduroam to the system automaticly
-    inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
     wl-clipboard
     pciutils
     lshw
