@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./niri.nix
+    ./theming.nix
     ./media.nix
     ./bash.nix
   ];
