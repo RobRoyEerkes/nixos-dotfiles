@@ -5,6 +5,9 @@
     tumbler
     gimp
     file-roller
+    inkscape
+    obsidian
+
   ];
 
   programs.thunar = {
