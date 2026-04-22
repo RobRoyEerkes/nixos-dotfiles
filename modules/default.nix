@@ -9,10 +9,12 @@
     ./games.nix
     ./filehandling.nix
     ./nvim.nix
+    ./niri.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs.config.allowUnfree = true;
+
   home-manager.extraSpecialArgs = {
     inherit inputs;
     inherit hostname;
@@ -21,7 +23,7 @@
   home-manager.users.rob.imports = [ ./home.nix ];
   home-manager.backupFileExtension = "backup";
   home-manager.useGlobalPkgs = true;
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true; # change this to limine or grub
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -83,12 +85,15 @@
     ];
   };
   services.udisks2.enable = true;
-  programs.niri = {
-    enable = true;
-  };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = { };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    config.common.default = "*";
+  };
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
