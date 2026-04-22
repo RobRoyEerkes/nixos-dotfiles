@@ -43,16 +43,17 @@
     XCURSOR_SIZE = "24";
   };
 
-  home.packages = with pkgs; [
-    alacritty # move to kitty or ghostty for image support
-    fuzzel
-    swaylock
-    swayidle # still need to set this up
-    mako
-    xdg-desktop-portal-gnome
-
-  ];
-  xdg.configFile = {
-    niri.source = ../config/niri; # TODO: Switch to the flake version to write this in nix-lang
+  programs.fuzzel.enable = true;
+  programs.kitty.enable = true;
+  services.mako.enable = true;
+  programs.alacritty.enable = true;
+  programs.swaylock.enable = false;
+  services.swayidle.enable = false;
+  programs.niri = {
+    settings = {
+      hotkey-overlay.skip-at-startup = true;
+      prefer-no-csd = true;
+    };
   };
+
 }
