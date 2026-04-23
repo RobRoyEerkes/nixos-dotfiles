@@ -7,6 +7,7 @@
     file-roller
     inkscape
     obsidian
+    audacity
 
   ];
 
