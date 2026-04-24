@@ -8,6 +8,7 @@
   programs.alacritty.enable = true;
   programs.swaylock.enable = false;
   services.swayidle.enable = false;
+  services.playerctld.enable = true;
 
   programs.niri = {
     settings = {
@@ -41,6 +42,8 @@
         };
       };
 
+      screenshot-path = "~/Pictures/Screenshots/Screenshot from %d-%m-%Y %H-%M-%S.png";
+
       spawn-at-startup = [
         { argv = [ "noctalia-shell" ]; }
       ];
@@ -53,8 +56,9 @@
         }
       ];
 
+      gestures.hot-corners.enable = false;
+
       binds = {
-        # Algemene acties
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
         "Mod+O".action.toggle-overview = [ ];
         "Mod+Q".action.close-window = [ ];
@@ -63,14 +67,14 @@
         "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = [ ];
         "Mod+Shift+P".action.power-off-monitors = [ ];
 
-        # Programma's spawnen
-        "Mod+Return".action.spawn = [ "alacritty" ];
+        # Spawn Programs
+        "Mod+Return".action.spawn = [ "kitty" ];
         "Mod+Space".action.spawn = [ "fuzzel" ];
         "Mod+B".action.spawn = [ "zen" ];
         "Super+Alt+L".action.spawn = [ "swaylock" ];
         "Mod+E".action.spawn = [ "thunar" ];
 
-        # Audio & Helderheid (met allow-when-locked)
+        # Audio & Brightness
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0";
@@ -124,7 +128,7 @@
           ];
         };
 
-        # Navigatie (Focus)
+        # Focus
         "Mod+Left".action.focus-column-left = [ ];
         "Mod+Down".action.focus-window-down = [ ];
         "Mod+Up".action.focus-window-up = [ ];
@@ -134,7 +138,7 @@
         "Mod+K".action.focus-window-or-workspace-up = [ ];
         "Mod+L".action.focus-column-right = [ ];
 
-        # Verplaatsen (Move)
+        # Move
         "Mod+Shift+Left".action.move-column-left = [ ];
         "Mod+Shift+Down".action.move-window-down = [ ];
         "Mod+Shift+Up".action.move-window-up = [ ];
@@ -144,7 +148,7 @@
         "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
         "Mod+Shift+L".action.move-column-right = [ ];
 
-        # Monitor navigatie
+        # Monitor navigation
         "Mod+Ctrl+Left".action.focus-monitor-left = [ ];
         "Mod+Ctrl+Down".action.focus-monitor-down = [ ];
         "Mod+Ctrl+Up".action.focus-monitor-up = [ ];
@@ -180,7 +184,7 @@
         "Mod+Ctrl+8".action.move-column-to-workspace = 8;
         "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-        # Scrollwiel & Muis
+        # Scrollwheel & Mouse
         "Mod+WheelScrollDown" = {
           cooldown-ms = 150;
           action.focus-workspace-down = [ ];
@@ -208,7 +212,7 @@
         "Mod+V".action.toggle-window-floating = [ ];
         "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [ ];
 
-        # Formaat aanpassen
+        # Resize
         "Mod+Minus".action.set-column-width = "-10%";
         "Mod+Equal".action.set-column-width = "+10%";
         "Mod+Shift+Minus".action.set-window-height = "-10%";

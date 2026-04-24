@@ -43,14 +43,14 @@
 
   services.dbus.enable = true;
 
-  services.pulseaudio.enable = false;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
+
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -85,6 +85,7 @@
       tree
     ];
   };
+
   services.udisks2.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -124,6 +125,7 @@
     pciutils
     lshw
     discord
+    brightnessctl # NOTE: Don't know if this is needed need to test on laptop
   ];
 
   fonts.packages = with pkgs; [
