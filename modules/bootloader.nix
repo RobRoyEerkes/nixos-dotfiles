@@ -10,7 +10,7 @@
         autoGenerateKeys = true;
       };
 
-      maxGenerations = 20;
+      maxGenerations = 10;
       extraConfig = ''
         				
         			'';
