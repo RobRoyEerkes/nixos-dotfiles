@@ -1,11 +1,225 @@
-{ inputs, pkgs, ... }:
 {
-  imports = [ inputs.niri.nixosModules.niri ];
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-  programs.niri = {
-    enable = true;
+  imports = [
+    ./noctalia-shell.nix
+  ];
+  programs.fuzzel.enable = true;
+  programs.kitty.enable = true;
+  services.mako.enable = true;
+  programs.alacritty.enable = true;
+  programs.swaylock.enable = false;
+  services.swayidle.enable = false;
 
-    package = pkgs.niri-stable;
+  programs.niri = {
+    settings = {
+      hotkey-overlay.skip-at-startup = true;
+      prefer-no-csd = true;
+      input.focus-follows-mouse.enable = true;
+      input.warp-mouse-to-focus.enable = true;
+
+      outputs = {
+        "HDMI-A-1" = {
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 60.000;
+          };
+          focus-at-startup = true;
+          position.x = 0;
+          position.y = 0;
+          scale = 1;
+        };
+        "HDMI-A-2" = {
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 60.000;
+          };
+          scale = 1;
+          transform.rotation = 270;
+          position.x = 1920;
+          position.y = 0;
+        };
+      };
+
+      spawn-at-startup = [
+        { argv = [ "noctalia-shell" ]; }
+      ];
+
+      window-rules = [
+        {
+          matches = [ { title = "Splash Screen — Kdenlive"; } ];
+          open-floating = true;
+          open-focused = false;
+        }
+      ];
+
+      binds = {
+        # Algemene acties
+        "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
+        "Mod+O".action.toggle-overview = [ ];
+        "Mod+Q".action.close-window = [ ];
+        "Mod+Shift+E".action.quit = [ ];
+        "Ctrl+Alt+Delete".action.quit = [ ];
+        "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = [ ];
+        "Mod+Shift+P".action.power-off-monitors = [ ];
+
+        # Programma's spawnen
+        "Mod+Return".action.spawn = [ "alacritty" ];
+        "Mod+Space".action.spawn = [ "fuzzel" ];
+        "Mod+B".action.spawn = [ "zen" ];
+        "Super+Alt+L".action.spawn = [ "swaylock" ];
+        "Mod+E".action.spawn = [ "thunar" ];
+
+        # Audio & Helderheid (met allow-when-locked)
+        "XF86AudioRaiseVolume" = {
+          allow-when-locked = true;
+          action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0";
+        };
+        "XF86AudioLowerVolume" = {
+          allow-when-locked = true;
+          action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        };
+        "XF86AudioMute" = {
+          allow-when-locked = true;
+          action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+        "XF86AudioMicMute" = {
+          allow-when-locked = true;
+          action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        };
+
+        "XF86AudioPlay" = {
+          allow-when-locked = true;
+          action.spawn-sh = "playerctl play-pause";
+        };
+        "XF86AudioStop" = {
+          allow-when-locked = true;
+          action.spawn-sh = "playerctl stop";
+        };
+        "XF86AudioPrev" = {
+          allow-when-locked = true;
+          action.spawn-sh = "playerctl previous";
+        };
+        "XF86AudioNext" = {
+          allow-when-locked = true;
+          action.spawn-sh = "playerctl next";
+        };
+
+        "XF86MonBrightnessUp" = {
+          allow-when-locked = true;
+          action.spawn = [
+            "brightnessctl"
+            "--class=backlight"
+            "set"
+            "+10%"
+          ];
+        };
+        "XF86MonBrightnessDown" = {
+          allow-when-locked = true;
+          action.spawn = [
+            "brightnessctl"
+            "--class=backlight"
+            "set"
+            "10%-"
+          ];
+        };
+
+        # Navigatie (Focus)
+        "Mod+Left".action.focus-column-left = [ ];
+        "Mod+Down".action.focus-window-down = [ ];
+        "Mod+Up".action.focus-window-up = [ ];
+        "Mod+Right".action.focus-column-right = [ ];
+        "Mod+H".action.focus-column-left = [ ];
+        "Mod+J".action.focus-window-or-workspace-down = [ ];
+        "Mod+K".action.focus-window-or-workspace-up = [ ];
+        "Mod+L".action.focus-column-right = [ ];
+
+        # Verplaatsen (Move)
+        "Mod+Shift+Left".action.move-column-left = [ ];
+        "Mod+Shift+Down".action.move-window-down = [ ];
+        "Mod+Shift+Up".action.move-window-up = [ ];
+        "Mod+Shift+Right".action.move-column-right = [ ];
+        "Mod+Shift+H".action.move-column-left = [ ];
+        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [ ];
+        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
+        "Mod+Shift+L".action.move-column-right = [ ];
+
+        # Monitor navigatie
+        "Mod+Ctrl+Left".action.focus-monitor-left = [ ];
+        "Mod+Ctrl+Down".action.focus-monitor-down = [ ];
+        "Mod+Ctrl+Up".action.focus-monitor-up = [ ];
+        "Mod+Ctrl+Right".action.focus-monitor-right = [ ];
+        "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
+        "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
+
+        # Workspaces
+        "Mod+Page_Down".action.focus-workspace-down = [ ];
+        "Mod+Page_Up".action.focus-workspace-up = [ ];
+        "Mod+U".action.focus-workspace-down = [ ];
+        "Mod+I".action.focus-workspace-up = [ ];
+        "Mod+Ctrl+U".action.move-column-to-workspace-down = [ ];
+        "Mod+Ctrl+I".action.move-column-to-workspace-up = [ ];
+
+        # Workspace per index (1-9)
+        "Mod+1".action.focus-workspace = 1;
+        "Mod+2".action.focus-workspace = 2;
+        "Mod+3".action.focus-workspace = 3;
+        "Mod+4".action.focus-workspace = 4;
+        "Mod+5".action.focus-workspace = 5;
+        "Mod+6".action.focus-workspace = 6;
+        "Mod+7".action.focus-workspace = 7;
+        "Mod+8".action.focus-workspace = 8;
+        "Mod+9".action.focus-workspace = 9;
+        "Mod+Ctrl+1".action.move-column-to-workspace = 1;
+        "Mod+Ctrl+2".action.move-column-to-workspace = 2;
+        "Mod+Ctrl+3".action.move-column-to-workspace = 3;
+        "Mod+Ctrl+4".action.move-column-to-workspace = 4;
+        "Mod+Ctrl+5".action.move-column-to-workspace = 5;
+        "Mod+Ctrl+6".action.move-column-to-workspace = 6;
+        "Mod+Ctrl+7".action.move-column-to-workspace = 7;
+        "Mod+Ctrl+8".action.move-column-to-workspace = 8;
+        "Mod+Ctrl+9".action.move-column-to-workspace = 9;
+
+        # Scrollwiel & Muis
+        "Mod+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action.focus-workspace-down = [ ];
+        };
+        "Mod+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action.focus-workspace-up = [ ];
+        };
+        "Mod+WheelScrollRight".action.focus-column-right = [ ];
+        "Mod+WheelScrollLeft".action.focus-column-left = [ ];
+
+        # Layout & Windows
+        "Mod+BracketLeft".action.consume-or-expel-window-left = [ ];
+        "Mod+BracketRight".action.consume-or-expel-window-right = [ ];
+        "Mod+Comma".action.consume-window-into-column = [ ];
+        "Mod+Period".action.expel-window-from-column = [ ];
+
+        "Mod+R".action.switch-preset-column-width = [ ];
+        "Mod+Shift+R".action.switch-preset-window-height = [ ];
+        "Mod+Ctrl+R".action.reset-window-height = [ ];
+        "Mod+F".action.maximize-column = [ ];
+        "Mod+Shift+F".action.fullscreen-window = [ ];
+        "Mod+C".action.center-column = [ ];
+        "Mod+W".action.toggle-column-tabbed-display = [ ];
+        "Mod+V".action.toggle-window-floating = [ ];
+        "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [ ];
+
+        # Formaat aanpassen
+        "Mod+Minus".action.set-column-width = "-10%";
+        "Mod+Equal".action.set-column-width = "+10%";
+        "Mod+Shift+Minus".action.set-window-height = "-10%";
+        "Mod+Shift+Equal".action.set-window-height = "+10%";
+
+        # Screenshots
+        "Print".action.screenshot = [ ];
+        "Ctrl+Print".action.screenshot-screen = [ ];
+        "Alt+Print".action.screenshot-window = [ ];
+      };
+    };
   };
 
 }

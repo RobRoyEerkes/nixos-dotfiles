@@ -9,10 +9,11 @@
     ./games.nix
     ./filehandling.nix
     ./nvim.nix
-    ./niri.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.niri.nixosModules.niri
   ];
 
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   nixpkgs.config.allowUnfree = true;
 
   home-manager.extraSpecialArgs = {
@@ -93,6 +94,12 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
     config.common.default = "*";
+  };
+
+  programs.niri = {
+    enable = true;
+
+    package = pkgs.niri-stable;
   };
 
   environment.systemPackages = with pkgs; [

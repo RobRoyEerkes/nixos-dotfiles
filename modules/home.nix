@@ -4,6 +4,7 @@
     ./theming.nix
     ./media.nix
     ./bash.nix
+    ./niri.nix
   ];
   home.username = "rob";
   home.homeDirectory = "/home/rob";
