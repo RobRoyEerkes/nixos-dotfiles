@@ -2,9 +2,9 @@
   imports = [
     ./noctalia-shell.nix
   ];
-  programs.fuzzel.enable = true;
+  programs.fuzzel.enable = false; # already with noctalia-shell
   programs.kitty.enable = true;
-  services.mako.enable = true;
+  services.mako.enable = false; # already with noctalia-shell
   programs.swaylock.enable = false;
   services.swayidle.enable = false;
   services.playerctld.enable = true;
@@ -68,7 +68,7 @@
 
         # Spawn Programs
         "Mod+Return".action.spawn = [ "kitty" ];
-        "Mod+Space".action.spawn-sh = [ "qs -c noctalia-shell ipc call launcher toggle" ];
+        "Mod+Space".action.spawn-sh = [ "noctalia-shell ipc call launcher toggle" ];
         "Mod+B".action.spawn = [ "zen" ];
         "Super+Alt+L".action.spawn = [ "swaylock" ];
         "Mod+E".action.spawn = [ "thunar" ];

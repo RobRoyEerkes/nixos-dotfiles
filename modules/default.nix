@@ -123,6 +123,7 @@
     lshw
     discord
     brightnessctl # NOTE: Don't know if this is needed need to test on laptop
+    libnotify
   ];
 
   fonts.packages = with pkgs; [
