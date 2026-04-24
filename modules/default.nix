@@ -8,6 +8,7 @@
   imports = [
     ./games.nix
     ./filehandling.nix
+    ./bootloader.nix
     ./nvim.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.niri.nixosModules.niri
@@ -24,10 +25,6 @@
   home-manager.users.rob.imports = [ ./home.nix ];
   home-manager.backupFileExtension = "backup";
   home-manager.useGlobalPkgs = true;
-  boot.loader.systemd-boot.enable = true; # change this to limine or grub
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = hostname; # Define your hostname.
 
