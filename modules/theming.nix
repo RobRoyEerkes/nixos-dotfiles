@@ -82,6 +82,10 @@
         };
       };
 
+      spawn-at-startup = [
+        { argv = [ "noctalia-shell" ]; }
+      ];
+
       binds = {
         # Algemene acties
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
