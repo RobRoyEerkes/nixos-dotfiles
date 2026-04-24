@@ -1,9 +1,9 @@
 {
   imports = [
     ./noctalia-shell.nix
+    ./kitty.nix
   ];
   programs.fuzzel.enable = false; # already with noctalia-shell
-  programs.kitty.enable = true;
   services.mako.enable = false; # already with noctalia-shell
   programs.swaylock.enable = false;
   services.swayidle.enable = false;
