@@ -34,13 +34,21 @@
       lsp = {
         enable = true;
         servers = {
-          nixd = {
-            enable = true;
-          };
+					"*".config.root_markers = [".git"];
+					nil_ls.enable = true;
+					# TODO: switch to nixd with right colorscheme
+#          nixd = {
+#            enable = true;
+#j            config = {
+#              root_markers = [ "flake.nix" ];
+#							capabilities.textDocument.semanticTokens = false;
+#            };
+#          };
           bashls.enable = true;
           clangd.enable = true;
         };
       };
+
 
       cmp = {
         enable = true;
