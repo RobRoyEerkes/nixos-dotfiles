@@ -1,12 +1,12 @@
 {
   imports = [
     ./noctalia-shell.nix
+    ./swayidle.nix
+    ./swaylock.nix
     ./kitty.nix
   ];
   programs.fuzzel.enable = false; # already with noctalia-shell
   services.mako.enable = false; # already with noctalia-shell
-  programs.swaylock.enable = false;
-  services.swayidle.enable = false;
   services.playerctld.enable = true;
 
   programs.niri = {
