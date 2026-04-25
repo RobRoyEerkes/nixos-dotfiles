@@ -34,7 +34,9 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
+          nixd = {
+            enable = true;
+          };
           bashls.enable = true;
           clangd.enable = true;
         };
@@ -43,12 +45,21 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
-        settings.sources = [
-          { name = "nvim-lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "luasnip"; }
-        ];
+        settings = {
+          completion.completeopt = "menu,menuone,noinsert";
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "path"; }
+            { name = "buffer"; }
+            { name = "luasnip"; }
+          ];
+          mapping = {
+            "<Tab>" = "cmp.mapping.confirm({ select = true})";
+            "<Down>" = "cmp.mapping.select_next_item()";
+            "<Up>" = "cmp.mapping.select_prev_item()";
+          };
+
+        };
       };
 
       dashboard = {
