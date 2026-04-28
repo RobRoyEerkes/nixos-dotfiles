@@ -11,6 +11,15 @@
 
   programs.niri = {
     settings = {
+
+      layout = {
+        gaps = 3;
+        default-column-width.proportion = 0.5;
+        center-focused-column = "never";
+        always-center-single-column = true;
+
+      };
+
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       input.focus-follows-mouse.enable = true;
@@ -48,9 +57,6 @@
       ];
 
       window-rules = [
-        {
-          default-column-width.proportion = 0.5;
-        }
         {
           matches = [ { title = "Splash Screen — Kdenlive"; } ];
           open-floating = true;
