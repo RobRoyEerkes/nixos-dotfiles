@@ -49,6 +49,9 @@
 
       window-rules = [
         {
+          default-column-width.proportion = 0.5;
+        }
+        {
           matches = [ { title = "Splash Screen — Kdenlive"; } ];
           open-floating = true;
           open-focused = false;
