@@ -57,6 +57,11 @@
       ];
 
       window-rules = [
+        # https://github.com/niri-wm/niri/pull/3474
+        # {
+        # matches = [{on-output = "HDMI-A-2";}];
+        # default-column-width = { proportion = 1; };
+        # };
         {
           matches = [ { title = "Splash Screen — Kdenlive"; } ];
           open-floating = true;
