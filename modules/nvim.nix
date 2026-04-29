@@ -171,7 +171,14 @@
       nvim-autopairs.enable = true;
       web-devicons.enable = true;
       which-key.enable = true;
-      mini.icons.enable = true;
+      mini-icons.enable = true;
+      mini-comment = {
+        enable = true;
+        settings.mappings = {
+          comment_line = "<c-/>";
+          comment_visual = "<c-/>";
+        };
+      };
     };
 
     keymaps = [
