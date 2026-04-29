@@ -24,7 +24,7 @@
 
       ];
       events = {
-        "before-sleep" = (display "off") + ";" + lock;
+        "before-sleep" = (display "off") + ";" + lock; # TODO: also turn of case lights (openrgb)
         "after-resume" = display "on";
 
       };
