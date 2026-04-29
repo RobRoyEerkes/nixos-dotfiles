@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ inputs.nixvim.nixosModules.nixvim ];
+  imports = [
+    inputs.nixvim.nixosModules.nixvim
+    ./programming.nix
+  ];
 
   programs.nixvim = {
     enable = true;
@@ -52,7 +55,6 @@
           #            };
           #          };
           bashls.enable = true;
-          clangd.enable = true;
         };
       };
 
@@ -147,7 +149,7 @@
             # '';
           };
           keymaps = {
-            "<s-CR>" = "actions.parent";
+            "<BS>" = "actions.parent";
             "<CR>" = "actions.select";
             "gp" = "actions.preview";
             "q" = "actions.close";
