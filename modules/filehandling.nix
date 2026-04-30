@@ -8,6 +8,7 @@
     inkscape
     obsidian
     audacity
+    localsend
 
   ];
 
