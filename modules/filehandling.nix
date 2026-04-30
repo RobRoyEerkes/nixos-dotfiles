@@ -9,6 +9,7 @@
     obsidian
     audacity
     localsend
+    ardour
 
   ];
 
