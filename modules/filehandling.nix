@@ -10,6 +10,8 @@
     audacity
     localsend
     ardour
+    noise-repellent
+    lsp-plugins
 
   ];
 

@@ -48,6 +48,32 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  security.pam.loginLimits = [
+    {
+      domain = "@audio";
+      item = "memlock";
+      type = "-";
+      value = "unlimited";
+    }
+    {
+      domain = "@audio";
+      item = "rtprio";
+      type = "-";
+      value = "99";
+    }
+    {
+      domain = "@audio";
+      item = "nofile";
+      type = "soft";
+      value = "99999";
+    }
+    {
+      domain = "@audio";
+      item = "nofile";
+      type = "hard";
+      value = "99999";
+    }
+  ];
 
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -117,6 +143,7 @@
     unzip
     eza
     fastfetch
+    openrgb
     inputs.zen.packages."${stdenv.hostPlatform.system}".default
     # brave
     uv
