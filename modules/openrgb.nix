@@ -13,7 +13,7 @@
       version = "experimental";
     });
     enable = true;
-    startupProfile = null; # TODO: set this to my old one with blue and pink
+    startupProfile = null; # TODO: set this to my old one with blue and hotpink
   };
 
 }
