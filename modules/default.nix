@@ -143,7 +143,6 @@
     unzip
     eza
     fastfetch
-    openrgb
     inputs.zen.packages."${stdenv.hostPlatform.system}".default
     # brave
     uv
