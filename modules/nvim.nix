@@ -172,6 +172,7 @@
       web-devicons.enable = true;
       which-key.enable = true;
       mini-icons.enable = true;
+      colorizer.enable = true;
       mini-comment = {
         enable = true;
         settings.mappings = {
