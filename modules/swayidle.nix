@@ -22,6 +22,10 @@
           resumeCommand = display "on";
         }
 
+        {
+          timeout = 600;
+          command = "systemctl suspend";
+        }
       ];
       events = {
         "before-sleep" = (display "off") + ";" + lock; # TODO: also turn of case lights (openrgb)
