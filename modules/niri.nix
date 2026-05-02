@@ -54,6 +54,7 @@
 
       spawn-at-startup = [
         { argv = [ "noctalia-shell" ]; }
+        { argv = [ "swayidle" ]; }
       ];
 
       window-rules = [

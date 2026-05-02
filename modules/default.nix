@@ -116,7 +116,6 @@
   services.udisks2.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.swaylock = { };
 
   xdg.portal = {
     enable = true;
