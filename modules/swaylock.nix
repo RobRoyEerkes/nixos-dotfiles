@@ -16,8 +16,8 @@
       indicator = true;
       indicator-radius = 100;
       indicator-thickness = 7;
-      ring-color = "bb00cc";
-      key-hl-color = "880033";
+      ring-color = "9d7cd8";
+      key-hl-color = "f7768e";
       line-color = "00000000";
       inside-color = "00000088";
       separator-color = "00000000";
