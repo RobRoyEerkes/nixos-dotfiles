@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.nixvim.nixosModules.nixvim
-    ./programming.nix
+    ./lsp.nix
   ];
 
   programs.nixvim = {
@@ -34,30 +34,6 @@
       # lsp configuration
 
       lsp-format.enable = true;
-      lsp = {
-        enable = true;
-        servers = {
-          "*".config.root_markers = [ ".git" ];
-          nil_ls = {
-            enable = true;
-            config = {
-              root_markers = [ "flake.nix" ];
-              autoArchive = true;
-              autoEvalInputs = true;
-            };
-          };
-          # TODO: switch to nixd with right colorscheme
-          #          nixd = {
-          #            enable = true;
-          #j            config = {
-          #              root_markers = [ "flake.nix" ];
-          #							capabilities.textDocument.semanticTokens = false;
-          #            };
-          #          };
-          bashls.enable = true;
-        };
-      };
-
       cmp = {
         enable = true;
         autoEnableSources = true;
