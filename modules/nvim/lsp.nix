@@ -7,7 +7,30 @@
     pkgs.gcc
     pkgs.cmake
     pkgs.uv
+    pkgs.typst
   ];
+
+  programs.nixvim.plugins.treesitter = {
+    enable = true;
+
+    # This tells Nix to include these specific parsers in the build
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      markdown
+      markdown_inline
+      html
+      latex
+      yaml
+      typst # Highly recommended for your tinymist setup
+      bash
+      python
+      rust
+    ];
+
+    settings = {
+      highlight.enable = true;
+      indent.enable = true;
+    };
+  };
 
   programs.nixvim.plugins.lsp = {
     enable = true;
@@ -29,6 +52,12 @@
       clangd.enable = true;
       cmake.enable = true;
       pylsp.enable = true;
+      tinymist = {
+        enable = true;
+        settings.exportPdf = "onSave";
+      };
+      html.enable = true;
+      latex.enable = true;
 
       # TODO: switch to nixd with right colorscheme
       #          nixd = {

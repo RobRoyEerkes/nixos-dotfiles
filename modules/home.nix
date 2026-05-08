@@ -36,6 +36,19 @@
       };
     };
   };
+  programs.zathura = {
+    enable = true;
+    options = {
+      recolor = true; # Enables recoloring by default
+      recolor-keephue = true; # Keeps colors in images/diagrams from looking like a negative
+
+      # Tokyo Night / Dark Palette
+      default-bg = "#1a1b26";
+      default-fg = "#c0caf5";
+      recolor-lightcolor = "#1a1b26";
+      recolor-darkcolor = "#c0caf5";
+    };
+  };
 
   home.packages = with pkgs; [
     xwayland-satellite

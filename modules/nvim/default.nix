@@ -142,6 +142,7 @@
         };
       };
 
+      render-markdown.enable = true;
       bufferline.enable = true;
       lualine.enable = true;
       nvim-autopairs.enable = true;
@@ -149,6 +150,7 @@
       which-key.enable = true;
       mini-icons.enable = true;
       colorizer.enable = true;
+      # typst-vim.enable = true;
       mini-comment = {
         enable = true;
         settings.mappings = {
@@ -182,6 +184,12 @@
         mode = "n";
         action = "<CMD>lua Snacks.picker.files({cwd = vim.fn.expand('~/nixos-dotfiles')})<CR>";
         options.desc = "Search config files";
+      }
+      {
+        key = "<leader>tv";
+        mode = "n";
+        action = "<CMD>silent !zathura %:r.pdf &<CR>";
+        options.desc = "View Pdf";
       }
     ];
 

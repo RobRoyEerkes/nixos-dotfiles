@@ -154,6 +154,8 @@
     brightnessctl # NOTE: Don't know if this is needed need to test on laptop
     libnotify
     eduvpn-client
+    texlive.combined.scheme-medium
+    python314Packages.pylatexenc
   ];
 
   fonts.packages = with pkgs; [
