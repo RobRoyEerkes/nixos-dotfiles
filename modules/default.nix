@@ -9,6 +9,7 @@
     ./games.nix
     ./filehandling.nix
     ./bootloader.nix
+    ./updates.nix
     ./nvim
     inputs.home-manager.nixosModules.home-manager
     inputs.niri.nixosModules.niri
