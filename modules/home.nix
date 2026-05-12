@@ -18,6 +18,9 @@
         email = "rreerkes@hotmail.com";
       };
       init.defaultBranch = "master";
+      push.autoSetupRemote = true;
+      advice.addEmptyPathspec = false;
+
     };
 
   };
