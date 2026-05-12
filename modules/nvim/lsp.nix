@@ -74,7 +74,15 @@
         #							capabilities.textDocument.semanticTokens = false;
         #            };
         #          };
-        bashls.enable = true;
+        bashls = {
+          enable = true;
+          config = {
+            filetypes = [
+              "sh"
+              "bash"
+            ];
+          };
+        };
       };
 
       autoArchive.enable = true;

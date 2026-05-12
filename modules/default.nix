@@ -141,6 +141,7 @@
     btop
     unzip
     eza
+    jq
     fastfetch
     inputs.zen.packages."${stdenv.hostPlatform.system}".default
     # brave
@@ -162,8 +163,22 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    # NOTE: removes orphaned system files and keeps the disk clean
+    # NOTE: If you want to automaticly remove devshells see this in home manager
+    gc = {
+      automatic = true; # Enable the automatic garbage collector
+      persistent = true;
+      dates = "Mon, 03:15"; # When to run the garbage collector
+      options = ""; # Arguments to pass to nix-collect-garbage
+    };
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
 }
