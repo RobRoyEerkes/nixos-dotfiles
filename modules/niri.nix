@@ -20,6 +20,13 @@
 
       };
 
+      layer-rules = [
+        {
+          matches = [ { namespace = "^Noctalia-overview*"; } ];
+          place-within-backdrop = true;
+        }
+      ];
+
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       input.focus-follows-mouse.enable = true;

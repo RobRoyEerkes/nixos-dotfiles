@@ -8,8 +8,9 @@
   programs.noctalia-shell = {
     enable = true;
     settings = {
-      settingsVersion = 0;
+      settingsVersion = 1;
       bar = {
+        barType = "simple";
         position = "top";
         monitors = [ ];
         density = "default";
@@ -139,7 +140,7 @@
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "";
+        directory = "~/nixos-dotfiles/artwork/wallpapers/";
         monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
         recursiveSearch = false;
