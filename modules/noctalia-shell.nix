@@ -22,7 +22,7 @@
         floating = true;
         marginVertical = 4;
         marginHorizontal = 4;
-        outerCorners = true;
+        outerCorners = false;
         exclusive = true;
         hideOnOverview = false;
         widgets = {
@@ -139,24 +139,37 @@
       };
       wallpaper = {
         enabled = true;
-        overviewEnabled = false;
+        overviewEnabled = true;
         directory = "~/nixos-dotfiles/artwork/wallpapers/";
         monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
-        recursiveSearch = false;
+        showHiddenFiles = false;
+        viewMode = "single";
         setWallpaperOnAllMonitors = true;
+        linkLightAndDarkWallpapers = true;
         fillMode = "crop";
         fillColor = "#000000";
         useSolidColor = false;
         solidColor = "#1a1a2e";
-        randomEnabled = false;
+        automationEnabled = true;
         wallpaperChangeMode = "random";
         randomIntervalSec = 300;
         transitionDuration = 1500;
-        transitionType = "random";
+        transitionType = [
+          "fade"
+          "disc"
+          "stripes"
+          "wipe"
+          "pixelate"
+          "honeycomb"
+        ];
+        skipStartupTransition = false;
         transitionEdgeSmoothness = 0.05;
         panelPosition = "follow_bar";
         hideWallpaperFilenames = false;
+        useOriginalImages = false;
+        overviewBlur = 0.4;
+        overviewTint = 0.6;
         useWallhaven = false;
         wallhavenQuery = "";
         wallhavenSorting = "relevance";
@@ -168,6 +181,8 @@
         wallhavenResolutionMode = "atleast";
         wallhavenResolutionWidth = "";
         wallhavenResolutionHeight = "";
+        sortOrder = "random";
+        favorites = [ ];
       };
       appLauncher = {
         enableClipboardHistory = false;
@@ -340,7 +355,7 @@
         criticalUrgencyDuration = 15;
         enableKeyboardLayoutToast = true;
         saveToHistory = {
-          low = true;
+          low = false;
           normal = true;
           critical = true;
         };
