@@ -3,6 +3,8 @@
   imports = [
     inputs.nixvim.nixosModules.nixvim
     ./lsp.nix
+    ./completion.nix
+
   ];
 
   programs.nixvim = {
@@ -17,6 +19,7 @@
       smarttab = true;
 
       scrolloff = 8;
+      autoindent = true;
     };
 
     clipboard = {
@@ -26,15 +29,6 @@
       };
       register = "unnamedplus";
     };
-    diagnostics = {
-      virtual_text = {
-        spacing = 4;
-        prefix = "●";
-      };
-      underline = true;
-      # Disable updates while typing so it only refreshes on save/exit insert
-      update_in_insert = false;
-    };
 
     colorschemes.tokyonight.enable = true;
 
@@ -42,26 +36,26 @@
 
       # lsp configuration
 
-      lsp-format.enable = true;
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings = {
-          completion.completeopt = "menu,menuone,noinsert";
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-            { name = "luasnip"; }
-          ];
-          mapping = {
-            "<Tab>" = "cmp.mapping.confirm({ select = true})";
-            "<Down>" = "cmp.mapping.select_next_item()";
-            "<Up>" = "cmp.mapping.select_prev_item()";
-          };
-
-        };
-      };
+      # lsp-format.enable = true;
+      # cmp = {
+      #   enable = true;
+      #   autoEnableSources = true;
+      #   settings = {
+      #     completion.completeopt = "menu,menuone,noinsert";
+      #     sources = [
+      #       { name = "nvim_lsp"; }
+      #       { name = "path"; }
+      #       { name = "buffer"; }
+      #       { name = "luasnip"; }
+      #     ];
+      #     mapping = {
+      #       "<Tab>" = "cmp.mapping.confirm({ select = true})";
+      #       "<Down>" = "cmp.mapping.select_next_item()";
+      #       "<Up>" = "cmp.mapping.select_prev_item()";
+      #     };
+      #
+      #   };
+      # };
 
       dashboard = {
         enable = true;
@@ -180,6 +174,13 @@
       #     };
       #   };
       # };
+      gitsigns = {
+        enable = true;
+        settings.signs = {
+          add.text = "+";
+          change.text = "~";
+        };
+      };
 
       render-markdown.enable = true;
       bufferline.enable = true;
