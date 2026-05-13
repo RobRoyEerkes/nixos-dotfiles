@@ -143,7 +143,6 @@
     unzip
     eza
     jq
-    fastfetch
     inputs.zen.packages."${stdenv.hostPlatform.system}".default
     # brave
     uv
