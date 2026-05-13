@@ -5,6 +5,15 @@
     settings = {
 
       logo = {
+        source = "nixos";
+        color = {
+          "1" = "cyan";
+          "2" = "magenta";
+          "3" = "cyan";
+          "4" = "magenta";
+          "5" = "cyan";
+          "6" = "magenta";
+        };
         padding = {
           top = 2;
         };
@@ -21,12 +30,7 @@
           type = "os";
           key = " OS";
           keyColor = "yellow";
-          format = "{2}";
-        }
-        {
-          type = "os";
-          key = "├{icon}";
-          keyColor = "yellow";
+          format = "{3}";
         }
         {
           type = "kernel";
