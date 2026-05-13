@@ -15,8 +15,9 @@
     };
 
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      name = "Papirus-dark";
+      package = pkgs.papirus-icon-theme;
+
     };
     gtk3.extraConfig = {
       "gtk-application-prefer-dark-theme" = 1;
@@ -27,6 +28,17 @@
       "gtk-application-prefer-dark-theme" = 1;
     };
   };
+
+  qt = {
+    enable = true;
+    qt6ctSettings = {
+      Appearance = {
+        icon_theme = "Papirus-dark";
+      };
+
+    };
+  };
+
   home.pointerCursor = {
     enable = true;
     name = "BreezeX-RosePine-Linux";

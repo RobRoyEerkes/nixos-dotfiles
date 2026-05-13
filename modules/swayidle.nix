@@ -10,7 +10,7 @@
       timeouts = [
         {
           timeout = 295;
-          command = "${pkgs.libnotify}/bin/notify-send -u low 'Locking in 5 seconds' -t 5000";
+          command = "${pkgs.libnotify}/bin/notify-send -a 'Swaylock' -u low 'Locking in 5 seconds' -t 5000";
         }
         {
           timeout = 300;

@@ -3,8 +3,6 @@
 CURRENT=$(nix flake metadata ~/nixos-dotfiles/ --json | jq -r ".locks.nodes.nixpkgs.locked.rev")
 LATEST=$(nix flake metadata nixpkgs/nixos-unstable --json --refresh | jq -r ".revision")
 if [ "$LATEST" != "$CURRENT" ]; then
-	echo "current: $CURRENT, latest: $LATEST"
-	notify-send -u critical "Update" "new nixos-updates"
-else
-	echo "current: $CURRENT, latest: $LATEST"
+	notify-send -a "Nixpkgs Update" -u critical -i nix-snowflake\
+		"New NixOs updates" "Update your system with nixos-upgrade"
 fi

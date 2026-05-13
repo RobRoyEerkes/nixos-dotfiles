@@ -8,6 +8,7 @@
   programs.noctalia-shell = {
     enable = true;
     settings = {
+      icons.defaultIcon = "nix-snowflake";
       settingsVersion = 1;
       bar = {
         barType = "simple";
@@ -197,7 +198,7 @@
         customLaunchPrefixEnabled = false;
         customLaunchPrefix = "";
         viewMode = "list";
-        showCategories = true;
+        showCategories = false;
         iconMode = "tabler";
         showIconBackground = false;
         ignoreMouseInput = false;
