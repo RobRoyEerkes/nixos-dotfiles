@@ -16,6 +16,7 @@
       nixos-test = "sudo nixos-rebuild test --flake ~/nixos-dotfiles#${hostname}";
       nixos-upgrade = "sudo nix flake update --flake ~/nixos-dotfiles && sudo nixos-rebuild switch --flake ~/nixos-dotfiles#${hostname}";
 
+      nixos-boot = "sudo nixos-rebuild boot --flake ~/nixos-dotfiles#${hostname}";
       ls = "eza";
       cat = "bat";
     };

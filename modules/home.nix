@@ -4,6 +4,7 @@
     ./theming.nix
     ./media.nix
     ./bash.nix
+    ./fastfetch.nix
     ./niri.nix
   ];
   home.username = "rob";
